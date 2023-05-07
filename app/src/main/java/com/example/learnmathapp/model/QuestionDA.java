@@ -1,11 +1,12 @@
 package com.example.learnmathapp.model;
 
 import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class QuestionDA {
+ class QuestionDA implements IQuestionDA{
     private ArrayList<Question> questions = new ArrayList<>();
     public QuestionDA(){
         questions.add(new Question(2,"What is the value of 5 raised to the power of 3?","125"));
@@ -16,8 +17,12 @@ public class QuestionDA {
         questions.add(new Question(2,"What is the result of 7 - 3?","4"));
     }
 
-//    public void getQuestion(View view){
-//        QuestionDA objQ = new QuestionDA();
-//        List<Question> questions = objQ.getQuestion("");
-//    }
+    public List <Question> getQuestion(){
+        ArrayList<Question> resultData = new ArrayList<>();
+        for (Question q : questions) {
+            q.getQuestionTxt();
+            resultData.add(q);
+        }
+        return resultData;
+    }
 }

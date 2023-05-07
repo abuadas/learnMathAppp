@@ -11,6 +11,12 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.learnmathapp.model.IQuestionDA;
+import com.example.learnmathapp.model.Question;
+import com.example.learnmathapp.model.QuestionDA;
+import com.example.learnmathapp.model.QuestionFactory;
+
+import java.util.List;
 import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
@@ -33,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
         ansRadioBtn2 = findViewById(R.id.ansRadioBtn2);
         ansRadioBtn3 = findViewById(R.id.ansRadioBtn3);
         nextBtn = findViewById(R.id.nextBtn);
-//        setQuestion();
+        setQuestion();
     }
 
     public void ansRadioBtn1(View view) {
@@ -45,28 +51,10 @@ public class MainActivity extends AppCompatActivity {
     public void ansRadioBtn3(View view) {
     }
 
-//    private void setQuestion() {
-//
-//        switch () {
-//            case 1:
-//                questionTextView.setText(a + " + " + b + " = ?");
-//                answer = a + b;
-//                break;
-//            case 2:
-//                questionTextView.setText(a + " - " + b + " = ?");
-//                answer = a - b;
-//                break;
-//            case 3:
-//                questionTextView.setText(a + " * " + b + " = ?");
-//                answer = a * b;
-//                break;
-//            case 4:
-//                if (b == 0) {
-//                    b = random.nextInt(10 * difficulty) + 1;
-//                }
-//                int dividend = a * b;
-//                questionTextView.setText(dividend + " / " + b + " = ?");
-//                answer = a;
-//                break;
-//        }
+    private void setQuestion() {
+        QuestionFactory qFactory = new QuestionFactory();
+        IQuestionDA objQ = qFactory.getModel();
+        List<Question>questions = objQ.getQuestion();
+        questionTextView.setText(questions.get(0).getQuestionTxt());
+    }
 }
