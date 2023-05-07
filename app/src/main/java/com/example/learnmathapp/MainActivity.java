@@ -1,5 +1,6 @@
 package com.example.learnmathapp;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,7 +14,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.learnmathapp.model.IQuestionDA;
 import com.example.learnmathapp.model.Question;
-import com.example.learnmathapp.model.QuestionDA;
 import com.example.learnmathapp.model.QuestionFactory;
 
 import java.util.List;
@@ -40,21 +40,52 @@ public class MainActivity extends AppCompatActivity {
         ansRadioBtn3 = findViewById(R.id.ansRadioBtn3);
         nextBtn = findViewById(R.id.nextBtn);
         setQuestion();
+        getAns();
     }
 
+
+    QuestionFactory qFactory = new QuestionFactory();
+    IQuestionDA objQ = qFactory.getModel();
+    List<Question>questions = objQ.getQuestion();
+    private void setQuestion() {
+        questionTextView.setText(questions.get(0).getQuestionTxt());
+    }
+    private void getAns() {
+
+    }
+    public void nextBtn(View view) {
+        for(int i = 1; i < questions.size();i++){
+            questionTextView.setText(questions.get(i).getQuestionTxt());
+        }
+    }
     public void ansRadioBtn1(View view) {
+        for(int i = 1; i < questions.size();i++){
+            if(ansRadioBtn1.getText().equals(questions.get(i).getAnsTxt())){
+                ansRadioBtn1.setBackgroundColor(Color.parseColor("#00FF00"));
+            }
+            else
+                ansRadioBtn1.setBackgroundColor(Color.parseColor("#FF0000"));
+        }
     }
 
     public void ansRadioBtn2(View view) {
+        for(int i = 1; i < questions.size();i++){
+            if(ansRadioBtn1.getText().equals(questions.get(i).getAnsTxt())){
+                ansRadioBtn1.setBackgroundColor(Color.parseColor("#00FF00"));
+            }
+            else
+                ansRadioBtn1.setBackgroundColor(Color.parseColor("#FF0000"));
+        }
     }
 
     public void ansRadioBtn3(View view) {
+        for(int i = 1; i < questions.size();i++){
+            if(ansRadioBtn1.getText().equals(questions.get(i).getAnsTxt())){
+                ansRadioBtn1.setBackgroundColor(Color.parseColor("#00FF00"));
+            }
+            else
+                ansRadioBtn1.setBackgroundColor(Color.parseColor("#FF0000"));
+        }
     }
 
-    private void setQuestion() {
-        QuestionFactory qFactory = new QuestionFactory();
-        IQuestionDA objQ = qFactory.getModel();
-        List<Question>questions = objQ.getQuestion();
-        questionTextView.setText(questions.get(0).getQuestionTxt());
-    }
 }

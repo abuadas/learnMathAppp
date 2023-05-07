@@ -73,6 +73,7 @@
         android:layout_gravity="center"
         android:backgroundTint="#BF7FFF"
         android:layout_margin ="25dp"
-        android:textSize="16sp"/>
+        android:textSize="16sp"
+        android:onClick="nextBtn"/>
 
 </LinearLayout>
