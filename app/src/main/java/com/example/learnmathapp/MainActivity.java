@@ -70,21 +70,21 @@ public class MainActivity extends AppCompatActivity {
 
     public void ansRadioBtn2(View view) {
         for(int i = 1; i < questions.size();i++){
-            if(ansRadioBtn1.getText().equals(questions.get(i).getAnsTxt())){
-                ansRadioBtn1.setBackgroundColor(Color.parseColor("#00FF00"));
+            if(ansRadioBtn2.getText().equals(questions.get(i).getAnsTxt())){
+                ansRadioBtn2.setBackgroundColor(Color.parseColor("#00FF00"));
             }
             else
-                ansRadioBtn1.setBackgroundColor(Color.parseColor("#FF0000"));
+                ansRadioBtn2.setBackgroundColor(Color.parseColor("#FF0000"));
         }
     }
 
     public void ansRadioBtn3(View view) {
         for(int i = 1; i < questions.size();i++){
-            if(ansRadioBtn1.getText().equals(questions.get(i).getAnsTxt())){
-                ansRadioBtn1.setBackgroundColor(Color.parseColor("#00FF00"));
+            if(ansRadioBtn3.getText().equals(questions.get(i).getAnsTxt())){
+                ansRadioBtn3.setBackgroundColor(Color.parseColor("#00FF00"));
             }
             else
-                ansRadioBtn1.setBackgroundColor(Color.parseColor("#FF0000"));
+                ansRadioBtn3.setBackgroundColor(Color.parseColor("#FF0000"));
         }
     }
 
